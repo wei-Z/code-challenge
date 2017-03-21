@@ -91,47 +91,47 @@ Once you have completed your code, submit a link to a Github repo that contains 
 
 ## FAQ
 
-* *Do I need to create a private repo?*
+* *Do I need to create a private repo?*[](#FAQ_private_repo)
 
   No, you do not need to pay for a private repo - public is fine.
 
-* *Where does the data structure passed into the methods come from?*
+* *Where does the data structure passed into the methods come from?*[](#FAQ_data_structure)
 
   Some caller will pass you the data structure to use. You will define an in-memory data structure to use for the purposes of this challenge, but in some theoretical future refactor of this code there could be a different data structure implementation.
 
-* *What does an event look like?*
+* *What does an event look like?*[](#FAQ_sample_event)
 
   Please see sample events in the sample_input directory. These are intentionally just a single example for you to visualize the data, your code should be tested with more events than these.
 
-* *How should I handle data that [is missing (OR) looks like (OR) has] particular case X?*
+* *How should I handle data that [is missing (OR) looks like (OR) has] particular case X?*[](#FAQ_data_issues)
 
   You are welcome to protect your code against any particular data or handle data in any particular way, but it is a best practice to gracefully handle unexpected input. You should document any critical design decisions or assumptions.
 
-* *You are requiring ingesting of events that are not used. What am I missing?*
+* *You are requiring ingesting of events that are not used. What am I missing?*[](#FAQ_unused_events)
 
   The analytic method `TopXSimpleLTVCustomers` is only one potential method of looking at the data ingested. There could be other methods to do other functions. You are still required to ingest events even if they are not consumed as part of this challenge.
 
-* *May I use pre-built libraries?*
+* *May I use pre-built libraries?*[](#FAQ_libraries)
 
   You may, but you should not need to use anything exotic. Fairly standard libraries such as parsing functionality is fine. If you do use libraries that need to be separately downloaded or referenced to use the program, please document.
 
-* *May I use Big Data technology XYZ?*
+* *May I use Big Data technology XYZ?*[](#FAQ_big_data)
 
   Probably not. The purpose of this coding challenge is to ensure you have a solid foundation in coding skills. Additionally, your code must be easy to be reviewed and tested, so you should not expect the reviewer to have your specific technology installed and available. In the end, you must be sure that your resulting output is sufficient to showcase your code.
 
-* *How long may I work on this?*
+* *How long may I work on this?*[](#FAQ_time)
 
   The rough expectation is that the challenge will take a couple/few real time hours and can therefore be due in 48 calendar hours. That said, it is more important to be well built than timely so if you have other commitments and cannot quickly accomplish the challenge, then you can take more time.
 
-* *What is the point of dealing with site visits? Couldn't I just add up the order totals and multiply?*
+* *What is the point of dealing with site visits? Couldn't I just add up the order totals and multiply?*[](#FAQ_site_visits)
 
   Correct, dividing revenue by site visits just to multiply back out is not necessary to get to the result. That being said, for the purposes of this exercise you should assume that revenue / visit and visits / week are important metrics to the business and should be available from the data - even if you choose to not implement your revenue calculation using them.
 
-* *How do I handle missing data? What if a user doesn't come back?*
+* *How do I handle missing data? What if a user doesn't come back?*[](#FAQ_missing_data)
 
   You should consider your data set (whatever data set you use to test) as complete for that timeframe. So if user A has order events in week 1 and order events in the following week 2, but user B has only order events in week 1, then user B will have see a lower average revenue as his revenue is averaged with zero revenue in week 2.
 
-* *What constitutes a week?* 
+* *What constitutes a week?*[](#FAQ_week)
 
   You can calculate whatever you want for a week, but it is probably easier to consider a week as running from Sunday - Saturday, as the US default calendar does.
 
