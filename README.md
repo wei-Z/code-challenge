@@ -91,11 +91,11 @@ Once you have completed your code, submit a link to a Github repo that contains 
 
 ## FAQ
 
-* [*Do I need to create a private repo?*](#faq_private_repo)
+* [*Do I need to create a private repo?*](#faq-private-repo)
 
   No, you do not need to pay for a private repo - public is fine.
 
-* *Where does the data structure passed into the methods come from?*[](#faq_data_structure)
+* *Where does the data structure passed into the methods come from?*[](#faq-data-structure)
 
   Some caller will pass you the data structure to use. You will define an in-memory data structure to use for the purposes of this challenge, but in some theoretical future refactor of this code there could be a different data structure implementation.
 
