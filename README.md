@@ -91,7 +91,7 @@ Once you have completed your code, submit a link to a Github repo that contains 
 
 ## FAQ
 
-* *Do I need to create a private repo?*[](#FAQ_private_repo)
+* [*Do I need to create a private repo?*](#FAQ_private_repo)
 
   No, you do not need to pay for a private repo - public is fine.
 
