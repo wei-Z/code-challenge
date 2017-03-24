@@ -14,7 +14,9 @@ You may use one of the following OO languages: Java, Python, Scala.
 Given event e, update data D
 
 ### TopXSimpleLTVCustomers(x, D)
-Return the top x customers with the highest Simple Lifetime Value from data D.
+Return the top x customers with the highest Simple Lifetime Value from data D. 
+
+Please note that the timeframe for this calculation should come from D. That is, use the data that was ingested into D to calculate the LTV to frame the start and end dates of your LTV calculation. You should not be using external data (in particular "now") for this calculation.
 
 ## Events
 
