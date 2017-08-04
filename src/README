@@ -1,1 +1,9 @@
-Your source files reside in this directory
+# Your source files reside in this directory
+shutterfly.py is the main script that will utilize functions define in functions.py.
+
+Future work might include:
+
+    1. Read datasource from multiple files both in number and formats(not only txt files), and be able to combine results, or maybe connect to database directly.
+    2. Split JSON files into multiple small chunks(to solve memory limit issue). 
+    3. Create and organize error log (right now only show error message in the console, this can help track problematic event data and can further improve data source validation).
+    
