@@ -7,11 +7,13 @@ class shutterfly:
     @staticmethod
     def presort(data):
         return sorted(data, key = lambda v: (v['type'], v['verb'], v['event_time']) )      
-        
+     
+     # given event, update res      
     @staticmethod   
     def ingest(event, res):
+        # if CUSTOMER type
         if event['type'] =='CUSTOMER':
-            # 
+            # either NEW or UPDATE
             if event['verb'] == 'NEW':
                 res[event['key']] = {'last_name': event['last_name'], 'adr_city': event['adr_city'], 'adr_state': event['adr_state'],
                                             'start_date': event['event_time'], 'end_date': event['event_time'], 'visits': 1, 'spending': 0, 'order_dict': {}}
@@ -24,6 +26,7 @@ class shutterfly:
                     res[event['key']] = {'last_name': event['last_name'], 'adr_city': event['adr_city'], 'adr_state': event['adr_state'],
                                                 'start_date': res[event['key']]['start_date'], 'end_date': event['event_time'], 
                                                 'visits': res[event['key']]['visits']+1, 'spending': 0, 'order_dict': {}}
+        # if IMAGE type
         elif event['type'] == 'IMAGE':
             if event['customer_id'] not in res:
                 res[event['customer_id']] = {'start_date': event['event_time'], 'end_date': event['event_time'], 'visits': 1, 'spending': 0, 'order_dict': {}}
@@ -34,16 +37,7 @@ class shutterfly:
                 res[event['customer_id']]['end_date'] = event['event_time'] if event['event_time'] > res[event['customer_id']]['end_date'] \
                                                                             else res[event['customer_id']]['end_date']
                 res[event['customer_id']]['visits'] += 1
-        elif event['type'] == 'SITE_VISIT':
-            if event['customer_id'] not in res:
-                res[event['customer_id']] = {'start_date': event['event_time'], 'end_date': event['event_time'], 'visits': 1, 'spending': 0, 'order_dict': {}}
-                print 'error, the customer site visit event without previous customer event', "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", event, "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
-            else:
-                res[event['customer_id']]['start_date'] = event['event_time'] if event['event_time'] < res[event['customer_id']]['start_date'] \
-                                                                            else res[event['customer_id']]['start_date']
-                res[event['customer_id']]['end_date'] = event['event_time'] if event['event_time'] > res[event['customer_id']]['end_date'] \
-                                                                            else res[event['customer_id']]['end_date']
-                res[event['customer_id']]['visits'] += 1
+        # if ORDER type
         elif event['type'] == 'ORDER':
             if event['customer_id'] not in res: # no customer's previous information
                 res[event['customer_id']] = {'start_date': event['event_time'], 'end_date': event['event_time'], 'visits': 1, 'spending': float(event['total_amount'].split()[0]), 
@@ -80,12 +74,25 @@ class shutterfly:
                                                                             else res[event['customer_id']]['start_date']
                         res[event['customer_id']]['end_date'] = event['event_time'] if event['event_time'] > res[event['customer_id']]['end_date'] \
                                                                             else res[event['customer_id']]['end_date']
+        # if SITE_VISIT type       
+        elif event['type'] == 'SITE_VISIT':
+            if event['customer_id'] not in res:
+                res[event['customer_id']] = {'start_date': event['event_time'], 'end_date': event['event_time'], 'visits': 1, 'spending': 0, 'order_dict': {}}
+                print 'error, the customer site visit event without previous customer event', "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", event, "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+            else:
+                res[event['customer_id']]['start_date'] = event['event_time'] if event['event_time'] < res[event['customer_id']]['start_date'] \
+                                                                            else res[event['customer_id']]['start_date']
+                res[event['customer_id']]['end_date'] = event['event_time'] if event['event_time'] > res[event['customer_id']]['end_date'] \
+                                                                            else res[event['customer_id']]['end_date']
+                res[event['customer_id']]['visits'] += 1
+        # if unknown type
         else:
             print "Error, unknow event type \n", "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", event, "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
                     
     
                     
-    # ref:  https://stackoverflow.com/questions/14191832/how-to-calculate-difference-between-two-dates-in-weeks-in-python                                
+    # ref:  https://stackoverflow.com/questions/14191832/how-to-calculate-difference-between-two-dates-in-weeks-in-python 
+    # but changed to my own thinking                               
     def weeks(self, d1, d2):
         datetime.strptime(d1, '%Y-%m-%d:%H:%M:%S.%fZ')
         start = datetime.strptime(d1, '%Y-%m-%d:%H:%M:%S.%fZ')

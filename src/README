@@ -1,9 +1,14 @@
 # Your source files reside in this directory
-shutterfly.py is the main script that will utilize functions define in functions.py.
+
+shutterfly.py is the main script that will utilize functions defined in functions.py.
 
 Future work might include:
 
-    1. Read datasource from multiple files both in number and formats(not only txt files), and be able to combine results, or maybe connect to database directly.
+    1. Read datasource from multiple files both in number and formats(not only txt files), and be able to combine results.
     2. Split JSON files into multiple small chunks(to solve memory limit issue). 
     3. Create and organize error log (right now only show error message in the console, this can help track problematic event data and can further improve data source validation).
+    4. Final results push to database directly.
+    5. Further investigation on the results, for instance, what the characteristics that the top x LTV customers have in common, what products make them pay the most, on the contrast, for the customers who never orders or order very less, what they have in common, and how to improve, etc., prediction models may be constructed by on those questions.  
+
+
     

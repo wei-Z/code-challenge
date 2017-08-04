@@ -1,6 +1,6 @@
 The resulted data structure is as follows: 
 {"96f55c7d8f45": {"last_name": "Michael", "LTV": 7020.0, "end_date": "2017-01-27:12:55:55.555Z", "sv_per_week": 3, "visits": 10, "adr_state": "MD", "adr_city": "Rockville", "ce_per_visit": 4.5, "spending": 45.0, "order_dict": {"68d84e5d1a44": 25.0, "68d84e5d1b54": 20.0}, "weeks": 3, "start_date": "2017-01-06:12:46:12.384Z"}, "96f55c7d8f46": {"last_name": "Linda", "LTV": 13000.0, "end_date": "2017-01-20:12:55:55.555Z", "sv_per_week": 4, "visits": 4, "adr_state": "AK", "adr_city": "Middletown", "ce_per_visit": 6.25, "spending": 25.0, "order_dict": {"68d84e5d2b54": 25.0}, "weeks": 1, "start_date": "2017-01-20:12:44:52.081Z"}, "96f55c7d8f40": {"last_name": "Andy", "LTV": 12800.0, "end_date": "2017-01-26:12:55:55.555Z", "sv_per_week": 4, "visits": 13, "adr_state": "AK", "adr_city": "Middletown", "ce_per_visit": 6.153846153846154, "spending": 80.0, "order_dict": {"68d84e5d1e53": 20.0, "68d84e5d1a53": 20.0, "68d84e5d1a43": 15.0, "68d84e5d1b43": 25.0}, "weeks": 3, "start_date": "2017-01-06:12:44:07.041Z"}, "96f55c7d8f48": {"last_name": "Bill", "LTV": 26000.0, "end_date": "2017-02-25:12:55:55.555Z", "sv_per_week": 4, "visits": 4, "adr_state": "DC", "adr_city": "Washington", "ce_per_visit": 12.5, "spending": 50.0, "order_dict": {"68d84e5d2b54": 50.0}, "weeks": 1, "start_date": "2017-02-20:12:54:52.081Z"}}
-______________________________________
+___________________________________________________________
 The top 3 customers with the highest Simple Lifetime Value are: 
 96f55c7d8f48
 96f55c7d8f46
